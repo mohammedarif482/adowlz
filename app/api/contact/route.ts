@@ -2,11 +2,19 @@ import { siteConfig } from "@/lib/content";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-type ContactInput = { name: string; email: string; message: string };
+type ContactInput = {
+  name: string;
+  email: string;
+  message: string;
+  phone?: string;
+  projectType?: string;
+};
 
-function validate(body: unknown): { ok: true; data: ContactInput } | { ok: false; error: string } {
+function validate(
+  body: unknown
+): { ok: true; data: ContactInput } | { ok: false; error: string } {
   if (!body || typeof body !== "object") return { ok: false, error: "Invalid request body." };
-  const { name, email, message } = body as Record<string, unknown>;
+  const { name, email, message, phone, projectType } = body as Record<string, unknown>;
 
   if (typeof name !== "string" || name.trim().length < 2 || name.length > 120) {
     return { ok: false, error: "Please enter your name." };
@@ -17,10 +25,39 @@ function validate(body: unknown): { ok: true; data: ContactInput } | { ok: false
   if (typeof message !== "string" || message.trim().length < 5 || message.length > 5000) {
     return { ok: false, error: "Message must be between 5 and 5000 characters." };
   }
-  return { ok: true, data: { name: name.trim(), email: email.trim(), message: message.trim() } };
+
+  const data: ContactInput = {
+    name: name.trim(),
+    email: email.trim(),
+    message: message.trim(),
+  };
+
+  if (typeof phone === "string" && phone.trim().length > 0) {
+    if (phone.length > 60) return { ok: false, error: "Phone number is too long." };
+    data.phone = phone.trim();
+  }
+  if (typeof projectType === "string" && projectType.trim().length > 0) {
+    if (projectType.length > 120) return { ok: false, error: "Project type is too long." };
+    data.projectType = projectType.trim();
+  }
+
+  return { ok: true, data };
 }
 
-async function sendViaResend(input: ContactInput): Promise<{ ok: true } | { ok: false; error: string }> {
+function formatBody(input: ContactInput): string {
+  const lines = [
+    `From: ${input.name} <${input.email}>`,
+    input.phone ? `Phone: ${input.phone}` : null,
+    input.projectType ? `Project: ${input.projectType}` : null,
+    "",
+    input.message,
+  ];
+  return lines.filter((line) => line !== null).join("\n");
+}
+
+async function sendViaResend(
+  input: ContactInput
+): Promise<{ ok: true } | { ok: false; error: string }> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? siteConfig.contact.email;
   const from = process.env.CONTACT_FROM_EMAIL;
@@ -33,6 +70,7 @@ async function sendViaResend(input: ContactInput): Promise<{ ok: true } | { ok: 
     return { ok: true };
   }
 
+  const subjectSuffix = input.projectType ? ` (${input.projectType})` : "";
   const res = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -43,8 +81,8 @@ async function sendViaResend(input: ContactInput): Promise<{ ok: true } | { ok: 
       from,
       to,
       reply_to: input.email,
-      subject: `New enquiry from ${input.name}`,
-      text: `From: ${input.name} <${input.email}>\n\n${input.message}`,
+      subject: `New enquiry from ${input.name}${subjectSuffix}`,
+      text: formatBody(input),
     }),
   });
 

@@ -51,36 +51,42 @@ export const SERVICES = [
     slug: "cinematic-storytelling",
     title: "Cinematic Storytelling",
     desc: "TVCs, DVCs, and brand films that move hearts. From Canara Bank to Swiggy — we craft narratives that resonate globally.",
+    icon: "🎬",
   },
   {
     number: "02",
     slug: "visual-identity",
     title: "Visual Identity & Design",
     desc: "Logos, packaging, social assets, billboards, hoardings. Bold creativity that speaks volumes and stands out.",
+    icon: "✏️",
   },
   {
     number: "03",
     slug: "web-digital",
     title: "Web & Digital Experiences",
     desc: "Websites that captivate with beauty, engage with ease, and deliver purpose-driven performance.",
+    icon: "💻",
   },
   {
     number: "04",
     slug: "ai-software",
     title: "AI & Intelligent Software",
     desc: "Smart apps, automation, and personalized digital platforms that scale and adapt to your needs.",
+    icon: "🤖",
   },
   {
     number: "05",
     slug: "events-activations",
     title: "Events & Activations",
     desc: "Brand experiences and collaborative initiatives where ideas, people, and vision come together.",
+    icon: "🎉",
   },
   {
     number: "06",
     slug: "digital-marketing",
     title: "Digital Marketing & Growth",
     desc: "Strategy, media planning, analytics, and campaigns that drive visibility, traffic, and real results.",
+    icon: "📈",
   },
 ] as const;
 
@@ -106,19 +112,27 @@ export const WHY_US = [
 export const TEAM = [
   {
     name: "Arya Biju",
-    role: "Founder & CEO",
+    role: "Founder & Art Director",
     credentials: [
       "8+ years in design direction",
       "Led visual identity for 50+ brands",
     ],
+    image: "/team/arya.jpg",
+    bio: "Arya started Adowlz to build the studio she wanted to work at — one where art direction has a seat at the table from day one. She has led identity work for fifty-plus brands and keeps a hand on every project that leaves the door.",
+    expertise: ["Art Direction", "Brand Identity", "Packaging", "Creative Strategy"],
+    social: { linkedin: "#", instagram: "#" },
   },
   {
     name: "Anand Lal SS",
-    role: "Co-Founder",
+    role: "Co-Founder & Strategy",
     credentials: [
-      "MNC strategy background → creative storytelling",
+      "MNC strategy background",
       "Brand narrative specialist",
     ],
+    image: "/team/anand.jpg",
+    bio: "Anand spent a decade in strategy at multinationals before deciding the most interesting brand problems were the ones nobody had written a playbook for yet. He turns briefs into the kind of clarity creative teams actually want to work from.",
+    expertise: ["Brand Strategy", "Narrative", "Positioning", "Workshops"],
+    social: { linkedin: "#", instagram: "#" },
   },
   {
     name: "Deepu Cherian",
@@ -127,14 +141,22 @@ export const TEAM = [
       "10+ years software engineering",
       "Scaled platforms for 100k+ users",
     ],
+    image: "/team/deepu.jpg",
+    bio: "Deepu keeps the websites fast and the products shipping. He has built and scaled platforms used by hundreds of thousands of people, and treats every interface as a chance to remove friction the user didn't know they were carrying.",
+    expertise: ["Web Engineering", "AI Integration", "Performance", "Product"],
+    social: { linkedin: "#", instagram: "#" },
   },
   {
     name: "SJ Ajesh",
     role: "Associate Cinematographer",
     credentials: [
-      "In the craft since 2013",
-      "30+ cinematic projects — ads, features, commercials",
+      "Cinematographer since 2013",
+      "30+ commercial & feature projects",
     ],
+    image: "/team/ajesh.jpg",
+    bio: "Ajesh has been behind the camera since 2013, on everything from commercials to feature films. He brings a cinematographer's eye to brand work — long takes, considered light, and a quiet refusal to let a frame go out the door if it isn't right.",
+    expertise: ["Cinematography", "Lighting", "Direction", "Post"],
+    social: { linkedin: "#", instagram: "#" },
   },
 ] as const;
 
@@ -146,6 +168,168 @@ export const ABOUT_INTRO = {
   ],
 } as const;
 
+export const ABOUT_PAGE = {
+  hero: {
+    headline: "At Adowlz, Ideas Spread Their Wings",
+    subheading:
+      "A creative studio working at the intersection of cinema, design, and software — out of Dubai, Bangalore, and Cochin.",
+  },
+  story: [
+    "Adowlz was born from a simple belief: that great ideas, like owls, see what others miss — and when they take flight, they carry brands across new horizons. We started with a small studio, a handful of clients who trusted us, and a refusal to make work that looks like everyone else's.",
+    "Today we're a multidisciplinary team working across Dubai, Bangalore, and Cochin — cinematographers, designers, engineers, and strategists who collaborate on every brief from frame one. No layers, no hand-offs. The people you meet are the people who make the work.",
+    "We've shipped campaigns for Canara Bank, Swiggy, Pepsico and dozens of others, but the brief we love most is the one that comes from a founder with a story they haven't told yet. That's where the wings come in.",
+  ],
+  impact: [
+    { number: "34+", label: "Years of combined expertise" },
+    { number: "50+", label: "Projects shipped" },
+    { number: "3", label: "Offices across two continents" },
+    { number: "100%", label: "Client satisfaction" },
+  ],
+  vision:
+    "We believe in the transformative power of creativity — that a well-told story, a sharp piece of design, or a thoughtfully built product can move markets, shape culture, and give an idea wings it never knew it had.",
+} as const;
+
+export const SERVICE_DETAILS = {
+  "cinematic-storytelling": {
+    longDesc:
+      "Every brand has a story worth telling on screen. We craft cinematic narratives — TV commercials, digital videos, and brand films — that make people stop scrolling, lean in, and remember. From script to screen our team works as one production unit, so the vision survives intact from boardroom pitch to final cut.",
+    approach: [
+      "Concept & Storyboarding — we begin with the story, not the shot list. Every scene is mapped to a brand emotion before a camera moves.",
+      "Production Quality — cinema-grade cameras, lighting, and locations. We treat a 30-second ad like a feature film, because the audience does too.",
+      "Emotional Resonance — the final cut is tested for what it makes people feel. Recall comes from emotion; emotion comes from craft.",
+    ],
+    clients: ["Canara Bank", "Swiggy", "Birla Estates", "Pepsico"],
+  },
+  "visual-identity": {
+    longDesc:
+      "A brand's visual identity is the first conversation it has with the world. We design systems — logos, type, palettes, packaging, social templates — that hold up across every surface, from billboards in Bangalore to a feed in Brooklyn. Bold without being loud. Distinctive without being difficult.",
+    approach: [
+      "Discovery & Strategy — we learn the brand's voice and the room it has to grow into before we sketch.",
+      "Design System — every mark is built as a system, not a one-off. Logos, type, color, and motion all play in the same band.",
+      "Rollout & Stewardship — we hand over a brand book that's used, not shelved, then help the team apply it as the brand scales.",
+    ],
+    clients: ["Ivorytusk", "Align Architecture", "Practo"],
+  },
+  "web-digital": {
+    longDesc:
+      "A website is the only piece of brand work that has to do three things at once: look beautiful, feel effortless, and pay for itself. We build sites that are designed to convert as well as they're designed to be admired — measured in load time, scroll depth, and signed contracts.",
+    approach: [
+      "UX & Architecture — sitemap, flows, and content order are decided before a pixel is drawn.",
+      "Design & Build — hand-crafted in modern stacks like Next.js and Tailwind, with performance and accessibility baked in.",
+      "Launch & Iteration — we ship, measure, and improve. The site is a product, not a project.",
+    ],
+    clients: ["Fidelity", "Ivorytusk", "Practo"],
+  },
+  "ai-software": {
+    longDesc:
+      "Software is creative work too. We build intelligent applications — internal tools, customer-facing platforms, and AI-powered workflows — that take the busywork out of growth and put insight back in. Built to scale, designed to feel like the rest of your brand.",
+    approach: [
+      "Discovery & Prototyping — we map workflows and prototype interactions before we commit to architecture.",
+      "Engineering & AI Integration — modern stacks (TypeScript, Python), thoughtful AI integrations, and infrastructure that scales.",
+      "Support & Iteration — software is never done. We stay on for monitoring, improvements, and new features.",
+    ],
+    clients: ["Fidelity", "Practo", "Internal R&D"],
+  },
+  "events-activations": {
+    longDesc:
+      "Some brand moments need to be lived, not watched. We design and produce activations — launches, pop-ups, conferences, and brand experiences — that turn audiences into participants and stories into memories you can taste, hear, and walk through.",
+    approach: [
+      "Concept & Theme — every activation is built around a single, clear creative idea.",
+      "Production & Logistics — venue, vendors, talent, and tech. We handle the chaos so the brand can be present.",
+      "Capture & Amplification — what happens in the room shouldn't stay there. We document and edit for the channels.",
+    ],
+    clients: ["Birla Estates", "Pepsico", "Swiggy"],
+  },
+  "digital-marketing": {
+    longDesc:
+      "Great work nobody sees is a tragedy. Our growth team plans, places, and measures campaigns that put brand work in front of the right audience at the right cost. Performance media, content strategy, and analytics — wired up so every rupee can be traced.",
+    approach: [
+      "Strategy & Planning — audience, channel, message, budget. The plan is built before the spend.",
+      "Execution & Optimization — daily creative testing, audience refinement, and channel rebalancing.",
+      "Reporting & Insight — clear dashboards, monthly reads, and recommendations that drive next quarter's plan.",
+    ],
+    clients: ["Canara Bank", "Swiggy", "Practo"],
+  },
+} as const;
+
+export const CONTACT_PAGE = {
+  hero: {
+    headline: "Let's Make Magic Happen",
+    subheading:
+      "Tell us about the project — a brief, a budget range, a deadline, or just an idea you can't shake. We come back within two working days with thoughts on how we'd help.",
+  },
+  offices: [
+    {
+      city: "Dubai",
+      address: "Business Bay, Dubai, UAE",
+      phone: "+971 4 000 0000",
+      email: "dubai@adowlz.com",
+    },
+    {
+      city: "Bangalore",
+      address: "Indiranagar, Bengaluru, India",
+      phone: "+91 85902 04723",
+      email: "bangalore@adowlz.com",
+    },
+    {
+      city: "Cochin",
+      address: "Panampilly Nagar, Kochi, India",
+      phone: "+91 85902 04723",
+      email: "cochin@adowlz.com",
+    },
+  ],
+  formFields: [
+    {
+      name: "name",
+      label: "Your Name",
+      type: "text",
+      required: true,
+      placeholder: "Jane Doe",
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      required: true,
+      placeholder: "you@brand.com",
+    },
+    {
+      name: "phone",
+      label: "Phone (optional)",
+      type: "tel",
+      required: false,
+      placeholder: "+91 ...",
+    },
+    {
+      name: "projectType",
+      label: "Project Type",
+      type: "select",
+      required: true,
+      options: [
+        "Cinematic Storytelling",
+        "Visual Identity & Design",
+        "Web & Digital Experiences",
+        "AI & Intelligent Software",
+        "Events & Activations",
+        "Digital Marketing & Growth",
+        "Something else",
+      ],
+    },
+    {
+      name: "message",
+      label: "Tell us about your project",
+      type: "textarea",
+      required: true,
+      rows: 5,
+      placeholder: "Brief, budget range, timeline, or an idea you can't shake.",
+    },
+  ],
+} as const;
+
 export type Service = (typeof SERVICES)[number];
+export type ServiceSlug = Service["slug"];
 export type WhyUsItem = (typeof WHY_US)[number];
 export type TeamMemberData = (typeof TEAM)[number];
+export type ServiceDetail = (typeof SERVICE_DETAILS)[ServiceSlug];
+export type Office = (typeof CONTACT_PAGE.offices)[number];
+export type ContactFormField = (typeof CONTACT_PAGE.formFields)[number];

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { TeamMember } from "@/components/TeamMember";
-import { ABOUT_INTRO, HERO, SERVICES, TEAM } from "@/lib/constants";
+import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
-  description: ABOUT_INTRO.paragraphs[0],
+  description: siteConfig.aboutPage.hero.subheading,
 };
 
 export default function AboutPage() {
+  const { aboutPage, services } = siteConfig;
+  const { hero, story, impact, vision } = aboutPage;
+
   return (
     <>
       <Section tone="bone" className="pt-24 sm:pt-32">
@@ -20,36 +22,44 @@ export default function AboutPage() {
           At Adowlz,{" "}
           <span className="text-accent">Ideas Spread Their Wings</span>.
         </h1>
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          {ABOUT_INTRO.paragraphs.map((p) => (
-            <p key={p} className="text-lg text-foreground/80 sm:text-xl">
-              {p}
-            </p>
-          ))}
-        </div>
-        <p className="mt-10 text-sm font-medium uppercase tracking-[0.18em] text-foreground/70">
-          {HERO.metrics}
+        <p className="mt-8 max-w-3xl text-lg text-foreground/75 sm:text-xl">
+          {hero.subheading}
         </p>
       </Section>
 
-      <Section tone="ink" id="craft">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-bone/60">
-              Our craft spans
-            </p>
-            <h2 className="mt-3 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              From frame one to launch day.
-            </h2>
-          </div>
+      <Section tone="bone" id="story">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">
+            Our story
+          </p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Built by people who believe ideas have wings.
+          </h2>
         </div>
+        <div className="mt-12 grid gap-8 lg:grid-cols-3">
+          {story.map((paragraph) => (
+            <p key={paragraph} className="text-base text-foreground/80 sm:text-lg">
+              {paragraph}
+            </p>
+          ))}
+        </div>
+      </Section>
 
+      <Section tone="ink" id="craft">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-bone/60">
+            Our craft spans
+          </p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Six disciplines. One studio.
+          </h2>
+        </div>
         <ul className="mt-12 grid gap-px overflow-hidden rounded-3xl bg-bone/10 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s) => (
-            <li
-              key={s.slug}
-              className="flex flex-col gap-3 bg-ink p-8 sm:p-10"
-            >
+          {services.map((s) => (
+            <li key={s.slug} className="flex flex-col gap-3 bg-ink p-8 sm:p-10">
+              <span className="text-2xl" aria-hidden>
+                {s.icon}
+              </span>
               <span className="text-sm font-medium text-accent">{s.number}</span>
               <h3 className="text-xl font-semibold tracking-tight sm:text-2xl">
                 {s.title}
@@ -60,24 +70,41 @@ export default function AboutPage() {
         </ul>
       </Section>
 
-      <Section tone="bone" id="team">
+      <Section tone="bone" id="impact">
         <div className="max-w-3xl">
           <p className="text-xs uppercase tracking-[0.2em] text-muted">
-            The people
+            Impact
           </p>
           <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            A senior team, hands on every project.
+            Years of craft, measured in outcomes.
           </h2>
-          <p className="mt-6 text-lg text-foreground/75">
-            Four practitioners. Decades of craft. No hand-offs to junior teams.
-          </p>
         </div>
-
-        <ul className="mt-12 grid gap-6 sm:grid-cols-2">
-          {TEAM.map((member) => (
-            <TeamMember key={member.name} {...member} />
+        <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {impact.map((stat) => (
+            <li
+              key={stat.label}
+              className="rounded-3xl border border-border bg-surface p-8"
+            >
+              <p className="text-5xl font-semibold tracking-tight text-accent sm:text-6xl">
+                {stat.number}
+              </p>
+              <p className="mt-4 text-sm uppercase tracking-widest text-foreground/70">
+                {stat.label}
+              </p>
+            </li>
           ))}
         </ul>
+      </Section>
+
+      <Section tone="surface" id="vision">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">
+            Our vision
+          </p>
+          <p className="mt-8 text-2xl font-medium leading-snug tracking-tight text-foreground sm:text-3xl">
+            {vision}
+          </p>
+        </div>
       </Section>
 
       <Section tone="bone" className="pb-32">
@@ -91,9 +118,14 @@ export default function AboutPage() {
                 Bring the brief. We&rsquo;ll bring the vision, the craft, and the team that ships.
               </p>
             </div>
-            <Button href="/contact" variant="secondary" size="lg">
-              Start a project
-            </Button>
+            <div className="flex flex-wrap gap-4">
+              <Button href="/services" variant="secondary" size="lg">
+                Explore services
+              </Button>
+              <Button href="/contact" variant="ghost" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:border-accent-foreground hover:bg-accent-foreground/10">
+                Start a project
+              </Button>
+            </div>
           </div>
         </div>
       </Section>

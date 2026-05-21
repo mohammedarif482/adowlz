@@ -1,7 +1,10 @@
 import {
   ABOUT_INTRO,
+  ABOUT_PAGE,
+  CONTACT_PAGE,
   HERO,
   MAJOR_CLIENTS,
+  SERVICE_DETAILS,
   SERVICES,
   TEAM,
   WHY_US,
@@ -49,7 +52,9 @@ export const siteConfig = {
     secondaryCta: HERO.secondaryCta,
   },
   about: ABOUT_INTRO,
+  aboutPage: ABOUT_PAGE,
   services: SERVICES,
+  serviceDetails: SERVICE_DETAILS,
   whyUs: WHY_US,
   team: TEAM,
   clients: MAJOR_CLIENTS,
@@ -70,6 +75,7 @@ export const siteConfig = {
     phone: "+91 85902 044723",
     locations: ["Dubai", "Bangalore", "Cochin"],
   },
+  contactPage: CONTACT_PAGE,
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/" },
     { label: "Instagram", href: "https://www.instagram.com/" },
