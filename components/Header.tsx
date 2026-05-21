@@ -8,7 +8,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 sm:px-10">
         <Link href="/" aria-label={siteConfig.brand.name} className="flex items-center">
-          <BrandLogo className="h-7 w-auto text-foreground" />
+          <BrandLogo className="h-9 w-auto text-foreground" />
         </Link>
 
         <nav aria-label="Primary" className="hidden md:block">

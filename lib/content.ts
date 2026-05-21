@@ -58,8 +58,8 @@ export const siteConfig = {
     },
     {
       number: "02",
-      title: "Business Development",
-      desc: "Strategic partnerships, market expansion, and relationship building that create real growth opportunities and lasting revenue.",
+      title: "E-Commerce/Custom Development Solution",
+      desc: "Tailored online stores, mobile apps, and bespoke web platforms — built to convert, scale with your catalog, and fit the exact way your business runs.",
     },
     {
       number: "03",

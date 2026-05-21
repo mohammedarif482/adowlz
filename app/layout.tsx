@@ -35,10 +35,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: [
-      { url: "/brand/favicon.png", type: "image/png", sizes: "131x117" },
-      { url: "/brand/adowlz-logo.svg", type: "image/svg+xml" },
-    ],
+    icon: [{ url: "/brand/favicon.png", type: "image/png", sizes: "131x117" }],
     apple: { url: "/brand/favicon.png", sizes: "180x180", type: "image/png" },
   },
   openGraph: {

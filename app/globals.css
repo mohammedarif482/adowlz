@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* theme tokens */
 :root {
   --background: #f7f5f1;
   --foreground: #0b0b0d;
@@ -7,7 +8,7 @@
   --surface: #ffffff;
   --border: #e6e3dc;
   --accent: #ff5126;
-  --accent-foreground: #0b0b0d;
+  --accent-foreground: #ffffff;
   --ink: #0b0b0d;
   --bone: #f7f5f1;
 }
@@ -34,7 +35,7 @@
     --surface: #141417;
     --border: #26262b;
     --accent: #ff5126;
-    --accent-foreground: #0b0b0d;
+    --accent-foreground: #ffffff;
   }
 }
 
