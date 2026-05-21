@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import FloatingServiceWidget from "@/components/FloatingServiceWidget";
 import { siteConfig } from "@/lib/content";
 
 const geistSans = Geist({
@@ -115,6 +116,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <Analytics />
+        <FloatingServiceWidget />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
