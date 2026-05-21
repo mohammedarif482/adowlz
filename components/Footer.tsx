@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 import { BrandLogo } from "@/components/BrandLogo";
 
@@ -73,9 +74,17 @@ export function Footer() {
 
         <div
           aria-hidden
-          className="select-none border-t border-bone/10 pt-10 pb-6 text-[clamp(4rem,18vw,16rem)] font-semibold leading-none tracking-tighter"
+          className="select-none border-t border-bone/10 pt-10 pb-6"
         >
-          {brand.name}
+          <Image
+            src="/brand/Group 427319642 1.png"
+            alt=""
+            width={6144}
+            height={1064}
+            priority={false}
+            sizes="100vw"
+            className="h-auto w-full select-none"
+          />
         </div>
 
         <div className="flex flex-col gap-3 border-t border-bone/10 py-6 text-xs text-bone/50 sm:flex-row sm:items-center sm:justify-between">

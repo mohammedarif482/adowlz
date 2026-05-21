@@ -2,6 +2,7 @@ import Link from "next/link";
 import { siteConfig } from "@/lib/content";
 import { Button } from "@/components/ui/Button";
 import { BrandLogo } from "@/components/BrandLogo";
+import { MobileMenu } from "@/components/MobileMenu";
 
 export function Header() {
   return (
@@ -32,12 +33,13 @@ export function Header() {
           </Button>
         </div>
 
-        <Link
-          href={siteConfig.hero.secondaryCta.href}
-          className="md:hidden inline-flex items-center justify-center rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background"
-        >
-          Contact
-        </Link>
+        <MobileMenu
+          items={siteConfig.nav}
+          cta={{
+            label: siteConfig.hero.secondaryCta.label,
+            href: siteConfig.hero.secondaryCta.href,
+          }}
+        />
       </div>
     </header>
   );

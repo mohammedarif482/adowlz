@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import FloatingServiceWidget from "@/components/FloatingServiceWidget";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { siteConfig } from "@/lib/content";
 
 const geistSans = Geist({
@@ -117,6 +118,7 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <FloatingServiceWidget />
+        <WhatsAppButton />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}

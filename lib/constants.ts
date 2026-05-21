@@ -37,12 +37,12 @@ export const HERO = {
 } as const;
 
 export const MAJOR_CLIENTS = [
-  "Canara Bank",
-  "Swiggy",
-  "Pepsico",
-  "Birla Estates",
-  "Fidelity",
-  "Practo",
+  "https://i.pinimg.com/736x/c1/ef/2e/c1ef2e91b95eac43bc00afbd580d23a3.jpg",
+  "https://cdn.brandfetch.io/domain/swiggy.com/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
+  "https://cdn.brandfetch.io/domain/pepsico.com/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
+  "https://cdn.brandfetch.io/domain/birlaestates.com/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
+  "https://cdn.brandfetch.io/domain/fidelity.com/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
+  "https://cdn.brandfetch.io/domain/practo.com/fallback/lettermark/theme/dark/h/400/w/400/icon?c=1bfwsmEH20zzEfSNTed",
 ] as const;
 
 export const SERVICES = [
