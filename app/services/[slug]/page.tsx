@@ -51,9 +51,7 @@ export default async function ServiceDetailPage({
           Services / {service.number}
         </p>
         <div className="mt-6 flex items-start gap-6">
-          <span className="text-6xl sm:text-7xl" aria-hidden>
-            {service.icon}
-          </span>
+          <service.icon className="text-6xl text-accent sm:text-7xl" aria-hidden />
           <div>
             <h1 className="text-[clamp(2.25rem,5vw,4.5rem)] font-semibold leading-[1.05] tracking-tight">
               {service.title}
@@ -143,9 +141,7 @@ export default async function ServiceDetailPage({
                 className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-background p-5 transition-colors hover:border-accent/50"
               >
                 <span className="flex items-center gap-3">
-                  <span className="text-xl" aria-hidden>
-                    {s.icon}
-                  </span>
+                  <s.icon className="text-xl text-accent" aria-hidden />
                   <span className="text-base font-medium">{s.title}</span>
                 </span>
                 <span
@@ -161,7 +157,7 @@ export default async function ServiceDetailPage({
       </Section>
 
       <Section tone="bone" className="pb-32">
-        <div className="overflow-hidden rounded-3xl bg-accent p-10 text-accent-foreground sm:p-16">
+        <div className="overflow-hidden rounded-3xl bg-accent-gradient p-10 text-accent-foreground sm:p-16">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">

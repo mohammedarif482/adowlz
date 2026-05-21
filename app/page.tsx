@@ -9,15 +9,15 @@ export default function HomePage() {
 
   return (
     <>
-      <Section tone="bone" className="pt-24 pb-4 sm:pt-32 sm:pb-6" innerClassName="relative">
+      <Section tone="bone" className="pt-24 pb-4 sm:pt-32 sm:pb-6" innerClassName="relative isolate">
         <p className="text-xs uppercase tracking-[0.2em] text-muted">
           {hero.eyebrow}
         </p>
-        <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight">
+        <h1 className="relative z-10 mt-6 max-w-5xl text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight">
           Where Ideas{" "}
-          <span className="text-accent">Spread Their Wings</span>.
+          <span className="text-accent-gradient">Spread Their Wings</span>.
         </h1>
-        <p className="mt-8 max-w-2xl text-lg text-muted sm:text-xl">
+        <p className="relative z-10 mt-8 max-w-2xl text-lg text-muted sm:text-xl">
           {hero.subtitle}
         </p>
         <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-foreground/70">
@@ -30,6 +30,27 @@ export default function HomePage() {
           <Button href={hero.secondaryCta.href} size="lg" variant="ghost">
             {hero.secondaryCta.label}
           </Button>
+        </div>
+
+        <div className="absolute right-4 top-0 -z-10 hidden w-[32%] max-w-[420px] lg:block xl:right-8">
+          <div className="group relative aspect-[3/4] w-full overflow-hidden rounded-3xl bg-bone/5 shadow-2xl">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://i1-c.pinimg.com/1200x/b1/59/41/b15941c03dd6459cf76302adbf079255.jpg"
+              alt="ADOWLZ hero — cinematic creative work"
+              className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+            />
+          </div>
+          <div className="group absolute -bottom-10 -left-12 w-36 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border lg:w-40 xl:w-48">
+            <div className="aspect-square">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://i.pinimg.com/736x/2b/d9/6b/2bd96b04838c0e74fb3f2b234c4edb18.jpg"
+                alt="Featured work — visual identity"
+                className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+              />
+            </div>
+          </div>
         </div>
 
         <div className="mt-20 border-t border-border pt-10 pb-0 sm:pt-12">
@@ -114,7 +135,7 @@ export default function HomePage() {
               </p>
               <a
                 href="/contact"
-                className="group inline-flex items-center gap-2 rounded-full bg-accent py-1.5 pl-5 pr-1.5 text-sm font-medium text-accent-foreground transition hover:bg-accent/90"
+                className="group inline-flex items-center gap-2 rounded-full bg-accent-gradient py-1.5 pl-5 pr-1.5 text-sm font-medium text-accent-foreground transition hover:opacity-90"
               >
                 Get in touch
                 <span
@@ -155,7 +176,7 @@ export default function HomePage() {
                 src={item.src}
                 alt={item.alt}
                 loading="lazy"
-                className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
               />
               <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
                 {item.caption}
@@ -180,6 +201,22 @@ export default function HomePage() {
         <WhyUs items={whyUs} />
       </Section>
 
+      <Section tone="bone" className="py-8 sm:py-12">
+        <div className="overflow-hidden rounded-3xl bg-accent-gradient p-10 text-accent-foreground sm:p-16">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+                {cta.title}
+              </h2>
+              <p className="mt-4 text-lg text-accent-foreground/80">{cta.body}</p>
+            </div>
+            <Button href={cta.button.href} variant="secondary" size="lg">
+              {cta.button.label}
+            </Button>
+          </div>
+        </div>
+      </Section>
+
       <Section tone="bone" id="testimonials">
         <p className="text-xs uppercase tracking-[0.2em] text-muted">
           What clients say
@@ -201,13 +238,22 @@ export default function HomePage() {
         </div>
       </Section>
 
-      <Section tone="bone" className="pb-32">
-        <div className="overflow-hidden rounded-3xl bg-accent p-10 text-accent-foreground sm:p-16">
-          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+      <Section tone="bone" className="py-8 pb-16 sm:py-12 sm:pb-20">
+        <div
+          className="overflow-hidden rounded-3xl bg-contain bg-center bg-no-repeat p-6 text-accent-foreground sm:p-10 lg:p-16"
+          style={{
+            backgroundImage: "url('/moc/mocbg.png')",
+            aspectRatio: "4096 / 1045",
+          }}
+        >
+          <div className="flex h-full flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
-              <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-                {cta.title}
-              </h2>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/moc/moctitle.png"
+                alt={cta.title}
+                className="h-auto w-full max-w-sm sm:max-w-md"
+              />
               <p className="mt-4 text-lg text-accent-foreground/80">{cta.body}</p>
             </div>
             <Button href={cta.button.href} variant="secondary" size="lg">

@@ -29,7 +29,7 @@ export default function TeamPage() {
           The people
         </p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[1.02] tracking-tight">
-          Our <span className="text-accent">Gifted Minds</span>.
+          Our <span className="text-accent-gradient">Gifted Minds</span>.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-foreground/75 sm:text-xl">
           Young, approachable, enthusiastic — and genuinely talented. Four
@@ -129,7 +129,7 @@ export default function TeamPage() {
       </Section>
 
       <Section tone="bone" className="pb-32">
-        <div className="overflow-hidden rounded-3xl bg-accent p-10 text-accent-foreground sm:p-16">
+        <div className="overflow-hidden rounded-3xl bg-accent-gradient p-10 text-accent-foreground sm:p-16">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">

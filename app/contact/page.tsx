@@ -20,7 +20,7 @@ export default function ContactPage() {
         </p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[1.02] tracking-tight">
           Let&rsquo;s Make{" "}
-          <span className="text-accent">Magic Happen</span>.
+          <span className="text-accent-gradient">Magic Happen</span>.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-foreground/75 sm:text-xl">
           {hero.subheading}
@@ -105,7 +105,7 @@ export default function ContactPage() {
           <div className="flex flex-col items-start gap-3 text-bone/70 sm:items-end">
             <a
               href={`mailto:${contact.email}`}
-              className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-4 text-base font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+              className="inline-flex items-center gap-2 rounded-full bg-accent-gradient px-7 py-4 text-base font-medium text-accent-foreground transition hover:opacity-90"
             >
               Open in mail
               <span aria-hidden>→</span>

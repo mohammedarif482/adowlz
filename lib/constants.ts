@@ -1,3 +1,12 @@
+import {
+  FaChampagneGlasses,
+  FaChartLine,
+  FaFilm,
+  FaLaptopCode,
+  FaPenNib,
+  FaRobot,
+} from "react-icons/fa6";
+
 export const BRAND = {
   name: "adowlz",
   tagline: "Where ideas spread their wings.",
@@ -51,42 +60,42 @@ export const SERVICES = [
     slug: "cinematic-storytelling",
     title: "Cinematic Storytelling",
     desc: "TVCs, DVCs, and brand films that move hearts. From Canara Bank to Swiggy — we craft narratives that resonate globally.",
-    icon: "🎬",
+    icon: FaFilm,
   },
   {
     number: "02",
     slug: "visual-identity",
     title: "Visual Identity & Design",
     desc: "Logos, packaging, social assets, billboards, hoardings. Bold creativity that speaks volumes and stands out.",
-    icon: "✏️",
+    icon: FaPenNib,
   },
   {
     number: "03",
     slug: "web-digital",
     title: "Web & Digital Experiences",
     desc: "Websites that captivate with beauty, engage with ease, and deliver purpose-driven performance.",
-    icon: "💻",
+    icon: FaLaptopCode,
   },
   {
     number: "04",
     slug: "ai-software",
     title: "AI & Intelligent Software",
     desc: "Smart apps, automation, and personalized digital platforms that scale and adapt to your needs.",
-    icon: "🤖",
+    icon: FaRobot,
   },
   {
     number: "05",
     slug: "events-activations",
     title: "Events & Activations",
     desc: "Brand experiences and collaborative initiatives where ideas, people, and vision come together.",
-    icon: "🎉",
+    icon: FaChampagneGlasses,
   },
   {
     number: "06",
     slug: "digital-marketing",
     title: "Digital Marketing & Growth",
     desc: "Strategy, media planning, analytics, and campaigns that drive visibility, traffic, and real results.",
-    icon: "📈",
+    icon: FaChartLine,
   },
 ] as const;
 
@@ -268,13 +277,13 @@ export const CONTACT_PAGE = {
     {
       city: "Bangalore",
       address: "Indiranagar, Bengaluru, India",
-      phone: "+91 85902 04723",
+      phone: "+91 85920 44723",
       email: "bangalore@adowlz.com",
     },
     {
       city: "Cochin",
       address: "Panampilly Nagar, Kochi, India",
-      phone: "+91 85902 04723",
+      phone: "+91 85920 44723",
       email: "cochin@adowlz.com",
     },
   ],

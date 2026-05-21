@@ -72,7 +72,7 @@ export const siteConfig = {
   ],
   contact: {
     email: "hello@adowlz.com",
-    phone: "+91 85902 044723",
+    phone: "+91 85920 44723",
     locations: ["Dubai", "Bangalore", "Cochin"],
   },
   contactPage: CONTACT_PAGE,
@@ -84,8 +84,8 @@ export const siteConfig = {
   ],
   cta: {
     title: "Got an idea? Let's give it wings.",
-    body: "Tell us about the project. We'll come back with a plan you can actually use.",
-    button: { label: "Start a project", href: "/contact" },
+    body: "Exclusive deep-tech research and production studio. Building around data analytics and business operations.",
+    button: { label: "View the Canvas", href: "https://madeofcuriosity.com/" },
   },
 } as const;
 

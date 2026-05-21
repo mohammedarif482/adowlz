@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/lib/content";
 
 const services = [
   "Video Production",
@@ -56,8 +57,8 @@ export default function FloatingServiceWidget() {
         </div>
 
         <Link
-          href="/contact"
-          className="shrink-0 rounded-full bg-accent px-4 py-2 text-sm font-bold text-accent-foreground transition-colors hover:bg-accent/90 sm:px-5"
+          href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
+          className="shrink-0 rounded-full bg-accent-gradient px-4 py-2 text-sm font-bold text-accent-foreground transition hover:opacity-90 sm:px-5"
         >
           Let&apos;s Talk →
         </Link>

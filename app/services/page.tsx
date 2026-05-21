@@ -21,7 +21,7 @@ export default function ServicesPage() {
         </p>
         <h1 className="mt-6 max-w-4xl text-[clamp(2.5rem,6vw,5.5rem)] font-semibold leading-[1.02] tracking-tight">
           Six crafts.{" "}
-          <span className="text-accent">One studio with wings.</span>
+          <span className="text-accent-gradient">One studio with wings.</span>
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-foreground/75 sm:text-xl">
           Pick a discipline below to see how we work, who we&rsquo;ve made it for, and
@@ -38,9 +38,7 @@ export default function ServicesPage() {
                 className="group flex h-full flex-col gap-6 bg-ink p-8 transition-colors hover:bg-bone/[0.04] sm:p-10"
               >
                 <div className="flex items-start justify-between">
-                  <span className="text-3xl" aria-hidden>
-                    {s.icon}
-                  </span>
+                  <s.icon className="text-3xl text-accent" aria-hidden />
                   <span
                     aria-hidden
                     className="text-xl text-bone/40 transition-transform group-hover:translate-x-1 group-hover:text-accent"
@@ -60,7 +58,7 @@ export default function ServicesPage() {
       </Section>
 
       <Section tone="bone" className="pb-32">
-        <div className="overflow-hidden rounded-3xl bg-accent p-10 text-accent-foreground sm:p-16">
+        <div className="overflow-hidden rounded-3xl bg-accent-gradient p-10 text-accent-foreground sm:p-16">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
