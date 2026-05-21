@@ -1,10 +1,11 @@
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { ServiceCard } from "@/components/ServiceCard";
+import { WhyUs } from "@/components/WhyUs";
 import { siteConfig } from "@/lib/content";
 
 export default function HomePage() {
-  const { hero, about, services, clients, testimonials, cta } = siteConfig;
+  const { hero, services, whyUs, clients, testimonials, cta } = siteConfig;
 
   return (
     <>
@@ -13,11 +14,14 @@ export default function HomePage() {
           {hero.eyebrow}
         </p>
         <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight">
-          Where creativity thrives{" "}
-          <span className="text-accent">under the stars</span>.
+          Where Ideas{" "}
+          <span className="text-accent">Spread Their Wings</span>.
         </h1>
         <p className="mt-8 max-w-2xl text-lg text-muted sm:text-xl">
           {hero.subtitle}
+        </p>
+        <p className="mt-6 text-sm font-medium uppercase tracking-[0.18em] text-foreground/70">
+          {hero.metrics}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <Button href={hero.primaryCta.href} size="lg">
@@ -28,39 +32,17 @@ export default function HomePage() {
           </Button>
         </div>
 
-        <div className="mt-20 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-border pt-8 text-sm text-muted">
-          <span className="text-xs uppercase tracking-widest">Trusted by</span>
-          {clients.map((c) => (
-            <span key={c} className="font-medium text-foreground/80">
-              {c}
-            </span>
-          ))}
-        </div>
-      </Section>
-
-      <Section tone="bone" id="about">
-        <div className="grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="text-xs uppercase tracking-[0.2em] text-muted">
-              {about.eyebrow}
-            </p>
-            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              {about.title}
-            </h2>
-          </div>
-          <div className="lg:col-span-7">
-            <p className="text-lg text-foreground/80 sm:text-xl">{about.body}</p>
-            <ul className="mt-8 flex flex-wrap gap-2">
-              {about.values.map((v) => (
-                <li
-                  key={v}
-                  className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-foreground/80"
-                >
-                  {v}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-20 border-t border-border pt-8">
+          <p className="text-xs uppercase tracking-widest text-muted">
+            Trusted by
+          </p>
+          <ul className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm sm:grid-cols-3 lg:grid-cols-6">
+            {clients.map((c) => (
+              <li key={c} className="font-medium text-foreground/85">
+                {c}
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 
@@ -71,7 +53,7 @@ export default function HomePage() {
               What we do
             </p>
             <h2 className="mt-3 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-              Four services. One night-driven studio.
+              Six crafts. One studio with wings.
             </h2>
           </div>
           <Button href="/services" variant="primary" size="md">
@@ -79,11 +61,26 @@ export default function HomePage() {
           </Button>
         </div>
 
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-bone/10 sm:grid-cols-2">
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-bone/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <ServiceCard key={s.title} {...s} />
           ))}
         </ul>
+      </Section>
+
+      <Section tone="bone" id="why-adowlz">
+        <div className="max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.2em] text-muted">
+            Why Adowlz
+          </p>
+          <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+            Built on craft, sharpened by experience.
+          </h2>
+          <p className="mt-6 text-lg text-foreground/75">
+            Four reasons brands from Canara Bank to Swiggy keep coming back.
+          </p>
+        </div>
+        <WhyUs items={whyUs} />
       </Section>
 
       <Section tone="bone" id="testimonials">
