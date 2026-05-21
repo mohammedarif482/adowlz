@@ -1,65 +1,127 @@
-import Image from "next/image";
+import { Section } from "@/components/ui/Section";
+import { Button } from "@/components/ui/Button";
+import { ServiceCard } from "@/components/ServiceCard";
+import { siteConfig } from "@/lib/content";
 
-export default function Home() {
+export default function HomePage() {
+  const { hero, about, services, clients, testimonials, cta } = siteConfig;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <Section tone="bone" className="pt-24 sm:pt-32" innerClassName="relative">
+        <p className="text-xs uppercase tracking-[0.2em] text-muted">
+          {hero.eyebrow}
+        </p>
+        <h1 className="mt-6 max-w-5xl text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight">
+          Where creativity thrives{" "}
+          <span className="text-accent">under the stars</span>.
+        </h1>
+        <p className="mt-8 max-w-2xl text-lg text-muted sm:text-xl">
+          {hero.subtitle}
+        </p>
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <Button href={hero.primaryCta.href} size="lg">
+            {hero.primaryCta.label}
+          </Button>
+          <Button href={hero.secondaryCta.href} size="lg" variant="ghost">
+            {hero.secondaryCta.label}
+          </Button>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="mt-20 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-border pt-8 text-sm text-muted">
+          <span className="text-xs uppercase tracking-widest">Trusted by</span>
+          {clients.map((c) => (
+            <span key={c} className="font-medium text-foreground/80">
+              {c}
+            </span>
+          ))}
         </div>
-      </main>
-    </div>
+      </Section>
+
+      <Section tone="bone" id="about">
+        <div className="grid gap-12 lg:grid-cols-12">
+          <div className="lg:col-span-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted">
+              {about.eyebrow}
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              {about.title}
+            </h2>
+          </div>
+          <div className="lg:col-span-7">
+            <p className="text-lg text-foreground/80 sm:text-xl">{about.body}</p>
+            <ul className="mt-8 flex flex-wrap gap-2">
+              {about.values.map((v) => (
+                <li
+                  key={v}
+                  className="rounded-full border border-border bg-surface px-4 py-1.5 text-sm text-foreground/80"
+                >
+                  {v}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section tone="ink" id="services">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs uppercase tracking-[0.2em] text-bone/60">
+              What we do
+            </p>
+            <h2 className="mt-3 max-w-2xl text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              Four services. One night-driven studio.
+            </h2>
+          </div>
+          <Button href="/services" variant="primary" size="md">
+            See all services
+          </Button>
+        </div>
+
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-3xl bg-bone/10 sm:grid-cols-2">
+          {services.map((s) => (
+            <ServiceCard key={s.title} {...s} />
+          ))}
+        </ul>
+      </Section>
+
+      <Section tone="bone" id="testimonials">
+        <p className="text-xs uppercase tracking-[0.2em] text-muted">
+          What clients say
+        </p>
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
+          {testimonials.map((t) => (
+            <figure
+              key={t.attribution}
+              className="rounded-3xl border border-border bg-surface p-8 sm:p-10"
+            >
+              <blockquote className="text-2xl font-medium leading-snug tracking-tight text-foreground">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
+              <figcaption className="mt-6 text-sm uppercase tracking-widest text-muted">
+                — {t.attribution}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </Section>
+
+      <Section tone="bone" className="pb-32">
+        <div className="overflow-hidden rounded-3xl bg-accent p-10 text-accent-foreground sm:p-16">
+          <div className="flex flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+                {cta.title}
+              </h2>
+              <p className="mt-4 text-lg text-accent-foreground/80">{cta.body}</p>
+            </div>
+            <Button href={cta.button.href} variant="secondary" size="lg">
+              {cta.button.label}
+            </Button>
+          </div>
+        </div>
+      </Section>
+    </>
   );
 }
