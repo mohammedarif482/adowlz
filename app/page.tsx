@@ -15,7 +15,7 @@ export default function HomePage() {
         </p>
         <h1 className="relative z-10 mt-6 max-w-5xl text-[clamp(2.75rem,8vw,7rem)] font-semibold leading-[0.95] tracking-tight">
           Where Ideas{" "}
-          <span className="text-accent-gradient">Spread Their Wings</span>.
+          <span className="text-accent">Spread Their Wings</span>.
         </h1>
         <p className="relative z-10 mt-8 max-w-2xl text-lg text-muted sm:text-xl">
           {hero.subtitle}
@@ -58,7 +58,7 @@ export default function HomePage() {
             Trusted by
           </p>
           <div
-            className="marquee mt-8 overflow-hidden py-4 sm:py-6"
+            className="marquee mt-8 overflow-x-auto overflow-y-hidden py-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:py-6 [&::-webkit-scrollbar]:hidden"
             style={{
               maskImage:
                 "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
@@ -73,7 +73,7 @@ export default function HomePage() {
                   <li
                     key={`${src}-${i}`}
                     aria-hidden={i >= clients.length}
-                    className="shrink-0"
+                    className="group shrink-0"
                   >
                     <div className="aspect-square h-24 w-24 overflow-hidden rounded-[22%] ring-1 ring-border sm:h-32 sm:w-32">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -81,7 +81,7 @@ export default function HomePage() {
                         src={src}
                         alt=""
                         loading="lazy"
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
                       />
                     </div>
                   </li>
@@ -149,8 +149,8 @@ export default function HomePage() {
           </div>
         </div>
 
-        <ul className="mt-16 grid gap-4 sm:grid-cols-3 sm:gap-6">
-          {[
+        {(() => {
+          const craftItems = [
             {
               src: "https://i.pinimg.com/736x/cc/d1/9e/ccd19e6f31b6940c2ca1d7aa7bd544ca.jpg",
               alt: "Cinema camera on set — cinematic storytelling",
@@ -166,24 +166,84 @@ export default function HomePage() {
               alt: "Code on screen — intelligent software",
               caption: "Mobile & Web Apps",
             },
-          ].map((item) => (
-            <li
-              key={item.caption}
-              className="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-bone/5 sm:aspect-[2/3]"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={item.src}
-                alt={item.alt}
-                loading="lazy"
-                className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
-              />
-              <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
-                {item.caption}
-              </span>
-            </li>
-          ))}
-        </ul>
+            {
+              src: "https://i.pinimg.com/736x/38/6c/23/386c2366c091b9b63eb2240b86e7a713.jpg",
+              alt: "AI-powered software interface",
+              caption: "AI Powered Software",
+            },
+            {
+              src: "https://i1-c.pinimg.com/1200x/4e/29/ad/4e29adb2e8f359f48d34be94c9c9cc97.jpg",
+              alt: "Live event production",
+              caption: "Events",
+            },
+            {
+              src: "https://i1-c.pinimg.com/1200x/0f/a1/ca/0fa1ca1b1305aa9598828c25706da65d.jpg",
+              alt: "Brand identity system",
+              caption: "Branding",
+            },
+            {
+              src: "https://i1-c.pinimg.com/1200x/c4/3a/f6/c43af6f061208a8d93ae8e0b0085ffd2.jpg",
+              alt: "Digital marketing campaign",
+              caption: "Digital marketing",
+            },
+          ];
+          return (
+            <>
+              <ul className="mt-16 grid gap-4 sm:hidden">
+                {craftItems.map((item) => (
+                  <li
+                    key={item.caption}
+                    className="group relative aspect-[3/4] overflow-hidden rounded-3xl bg-bone/5"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                    />
+                    <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
+                      {item.caption}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <div
+                className="marquee mt-16 hidden overflow-x-auto overflow-y-hidden py-4 [-ms-overflow-style:none] [scrollbar-width:none] sm:block [&::-webkit-scrollbar]:hidden"
+                style={{
+                  maskImage:
+                    "linear-gradient(to right, transparent, black 4%, black 96%, transparent)",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent, black 4%, black 96%, transparent)",
+                }}
+              >
+                <ul className="animate-marquee flex w-max items-stretch gap-6">
+                  {Array.from({ length: 6 })
+                    .flatMap(() => craftItems)
+                    .map((item, i) => (
+                      <li
+                        key={`${item.caption}-${i}`}
+                        aria-hidden={i >= craftItems.length}
+                        className="group relative aspect-[2/3] w-[260px] shrink-0 overflow-hidden rounded-3xl bg-bone/5 md:w-[320px] lg:w-[360px]"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={item.src}
+                          alt={item.alt}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition duration-700 grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+                        />
+                        <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
+                          {item.caption}
+                        </span>
+                      </li>
+                    ))}
+                </ul>
+              </div>
+            </>
+          );
+        })()}
       </Section>
 
       <Section tone="bone" id="why-adowlz">

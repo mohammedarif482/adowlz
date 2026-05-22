@@ -14,23 +14,38 @@ export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState<string | null>(null);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form).entries());
+    const data = new FormData(form);
 
     setStatus("sending");
     setError(null);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const json = (await res.json()) as { success: boolean; error?: string };
-      if (!res.ok || !json.success) {
-        throw new Error(json.error ?? "Something went wrong. Please try again.");
-      }
+      const name = (data.get("name") ?? "").toString().trim();
+      const email = (data.get("email") ?? "").toString().trim();
+      const phone = (data.get("phone") ?? "").toString().trim();
+      const projectType = (data.get("projectType") ?? "").toString().trim();
+      const detail = (data.get("message") ?? "").toString().trim();
+
+      const intro = projectType
+        ? `Hey, I'm *${name}*. I'd like to start a conversation about a new project — *${projectType}*.`
+        : `Hey, I'm *${name}*. I'd like to start a conversation about a new project.`;
+
+      const contactLines = [email, phone].filter(Boolean).join("\n");
+
+      const sections = [
+        intro,
+        detail ? `*Project Brief:*\n${detail}` : "",
+        contactLines,
+        "Looking forward to hearing from you.",
+      ].filter(Boolean);
+
+      const message = sections.join("\n\n");
+      const phoneDigits = siteConfig.contact.phone.replace(/\D/g, "");
+      const url = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank", "noopener,noreferrer");
       setStatus("success");
       form.reset();
     } catch (err) {
@@ -126,7 +141,7 @@ export function ContactForm() {
             role="status"
             className="text-sm font-medium text-accent"
           >
-            Thanks — we&rsquo;ll come back to you within two working days.
+            Opening WhatsApp — please tap send to share your details with us.
           </p>
         ) : null}
 

@@ -3,7 +3,8 @@ import { siteConfig } from "@/lib/content";
 
 export function WhatsAppButton() {
   const phoneDigits = siteConfig.contact.phone.replace(/\D/g, "");
-  const href = `https://wa.me/${phoneDigits}`;
+  const message = "Hello ADOWLZ — I'd like to know more about your services.";
+  const href = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(message)}`;
 
   return (
     <a
