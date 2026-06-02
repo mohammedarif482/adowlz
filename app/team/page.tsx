@@ -9,16 +9,6 @@ export const metadata: Metadata = {
     "Meet the cinematographers, designers, engineers, and strategists behind Adowlz.",
 };
 
-function initials(name: string): string {
-  return name
-    .split(/\s+/)
-    .map((part) => part[0])
-    .filter(Boolean)
-    .slice(0, 2)
-    .join("")
-    .toUpperCase();
-}
-
 export default function TeamPage() {
   const { team } = siteConfig;
 
@@ -45,11 +35,14 @@ export default function TeamPage() {
               className="group flex flex-col gap-6 rounded-3xl border border-border bg-surface p-8 transition-colors hover:border-accent/40 sm:p-10"
             >
               <div className="flex items-start gap-5">
-                <div
-                  aria-hidden
-                  className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-accent text-2xl font-semibold text-accent-foreground"
-                >
-                  {initials(member.name)}
+                <div className="h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-accent">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="flex-1">
                   <h2 className="text-2xl font-semibold tracking-tight">
