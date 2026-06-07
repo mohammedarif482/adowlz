@@ -39,10 +39,10 @@ export const HERO = {
   eyebrow: "Cinematic · Design · Tech",
   headline: "Where Ideas Spread Their Wings",
   subheading:
-    "We craft cinematic stories and bold visual identities that move brands forward — from concept to culture-shifting impact.",
+    "We create powerful advertising, build digital experiences, and integrate cutting-edge technology to help brands grow, engage, and lead.",
   primaryCta: { label: "Start a project", href: "/contact" },
   secondaryCta: { label: "See our work", href: "/services" },
-  metrics: "34+ years combined expertise · 50+ projects shipped",
+  metrics: "34+ years combined expertise · 23+ projects shipped",
 } as const;
 
 export const MAJOR_CLIENTS = [
@@ -124,7 +124,7 @@ export const TEAM = [
     role: "Founder & Art Director",
     credentials: [
       "8+ years in design direction",
-      "Led visual identity for 50+ brands",
+      "Led visual identity for 23+ brands",
     ],
     image: "/team/arya.png",
     bio: "Arya started Adowlz to build the studio she wanted to work at — one where art direction has a seat at the table from day one. She has led identity work for fifty-plus brands and keeps a hand on every project that leaves the door.",
@@ -178,7 +178,7 @@ export const ABOUT_PAGE = {
   ],
   impact: [
     { number: "34+", label: "Years of combined expertise" },
-    { number: "50+", label: "Projects shipped" },
+    { number: "23+", label: "Projects shipped" },
     { number: "3", label: "Offices across two continents" },
     { number: "100%", label: "Client satisfaction" },
   ],
