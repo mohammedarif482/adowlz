@@ -14,8 +14,8 @@ export const BRAND = {
     "Adowlz crafts cinematic stories and bold visual identities that move brands forward — from concept to culture-shifting impact.",
   email: "hello@adowlz.com",
   social: {
-    instagram: "https://instagram.com/adowlz",
-    linkedin: "https://linkedin.com/company/adowlz",
+    instagram: "https://www.instagram.com/adowlz/",
+    linkedin: "https://www.linkedin.com/company/adowlz/posts/?feedView=all",
     twitter: "https://twitter.com/adowlz",
   },
 } as const;
