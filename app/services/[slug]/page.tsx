@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { TrackedLink } from "@/components/TrackedLink";
+import { ServiceViewTracker } from "@/components/ServiceViewTracker";
 import { siteConfig } from "@/lib/content";
 import { SERVICES, SERVICE_DETAILS, type ServiceSlug } from "@/lib/constants";
 
@@ -46,6 +48,7 @@ export default async function ServiceDetailPage({
 
   return (
     <>
+      <ServiceViewTracker slug={service.slug} title={service.title} />
       <Section tone="bone" className="pt-24 sm:pt-32">
         <p className="text-xs uppercase tracking-[0.2em] text-muted">
           Services / {service.number}
@@ -129,14 +132,24 @@ export default async function ServiceDetailPage({
               Explore the other crafts.
             </h2>
           </div>
-          <Button href="/services" variant="ghost" size="md">
+          <Button
+            href="/services"
+            variant="ghost"
+            size="md"
+            eventLabel="All services"
+            eventSource="service_detail_more"
+          >
             All services
           </Button>
         </div>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {otherServices.map((s) => (
             <li key={s.slug}>
-              <a
+              <TrackedLink
+                kind="service"
+                source="service_detail_more"
+                serviceSlug={s.slug}
+                serviceTitle={s.title}
                 href={`/services/${s.slug}`}
                 className="group flex items-center justify-between gap-4 rounded-2xl border border-border bg-background p-5 transition-colors hover:border-accent/50"
               >
@@ -150,7 +163,7 @@ export default async function ServiceDetailPage({
                 >
                   →
                 </span>
-              </a>
+              </TrackedLink>
             </li>
           ))}
         </ul>
@@ -168,7 +181,13 @@ export default async function ServiceDetailPage({
                 with a plan.
               </p>
             </div>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              eventLabel="Start a project"
+              eventSource="service_detail_cta"
+            >
               Start a project
             </Button>
           </div>

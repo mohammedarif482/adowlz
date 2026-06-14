@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { trackCtaClick } from "@/lib/analytics";
 
 type Variant = "primary" | "secondary" | "ghost";
 type Size = "md" | "lg";
@@ -26,6 +29,10 @@ type ButtonProps = {
   variant?: Variant;
   size?: Size;
   className?: string;
+  /** Label used for CTA-click analytics, e.g. "Start a project". Defaults to the href if omitted. */
+  eventLabel?: string;
+  /** Where on the site this button lives, e.g. "hero", "services_cta". Required to track the click. */
+  eventSource?: string;
 };
 
 export function Button({
@@ -34,10 +41,17 @@ export function Button({
   variant = "primary",
   size = "md",
   className,
+  eventLabel,
+  eventSource,
 }: ButtonProps) {
   return (
     <Link
       href={href}
+      onClick={
+        eventSource
+          ? () => trackCtaClick(eventLabel ?? href, eventSource, href)
+          : undefined
+      }
       className={cn(base, variantStyles[variant], sizeStyles[size], className)}
     >
       {children}

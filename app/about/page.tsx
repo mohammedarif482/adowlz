@@ -117,10 +117,23 @@ export default function AboutPage() {
               </p>
             </div>
             <div className="flex flex-wrap gap-4">
-              <Button href="/services" variant="secondary" size="lg">
+              <Button
+                href="/services"
+                variant="secondary"
+                size="lg"
+                eventLabel="Explore services"
+                eventSource="about_cta"
+              >
                 Explore services
               </Button>
-              <Button href="/contact" variant="ghost" size="lg" className="border-accent-foreground/30 text-accent-foreground hover:border-accent-foreground hover:bg-accent-foreground/10">
+              <Button
+                href="/contact"
+                variant="ghost"
+                size="lg"
+                eventLabel="Start a project"
+                eventSource="about_cta"
+                className="border-accent-foreground/30 text-accent-foreground hover:border-accent-foreground hover:bg-accent-foreground/10"
+              >
                 Start a project
               </Button>
             </div>

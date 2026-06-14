@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/lib/content";
 import { BrandLogo } from "@/components/BrandLogo";
+import { TrackedLink } from "@/components/TrackedLink";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -42,30 +43,40 @@ export function Footer() {
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
               <li>
-                <a className="text-bone/80 hover:text-bone" href={`mailto:${contact.email}`}>
+                <TrackedLink
+                  kind="email"
+                  source="footer"
+                  className="text-bone/80 hover:text-bone"
+                  href={`mailto:${contact.email}`}
+                >
                   {contact.email}
-                </a>
+                </TrackedLink>
               </li>
               <li>
-                <a
+                <TrackedLink
+                  kind="phone"
+                  source="footer"
                   className="text-bone/80 hover:text-bone"
                   href={`tel:${contact.phone.replace(/\s+/g, "")}`}
                 >
                   {contact.phone}
-                </a>
+                </TrackedLink>
               </li>
             </ul>
             <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               {social.map((s) => (
                 <li key={s.label}>
-                  <a
+                  <TrackedLink
+                    kind="social"
+                    source="footer"
+                    label={s.label}
                     href={s.href}
                     className="text-bone/70 underline-offset-4 hover:text-bone hover:underline"
                     target="_blank"
                     rel="noreferrer noopener"
                   >
                     {s.label}
-                  </a>
+                  </TrackedLink>
                 </li>
               ))}
             </ul>

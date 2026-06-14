@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { ContactForm } from "@/components/ContactForm";
+import { TrackedLink } from "@/components/TrackedLink";
 import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -51,18 +52,26 @@ export default function ContactPage() {
                       {office.address}
                     </p>
                     <div className="mt-3 flex flex-col gap-1 text-sm">
-                      <a
-                        className="text-foreground/80 hover:text-accent"
-                        href={`tel:${office.phone.replace(/\s+/g, "")}`}
-                      >
-                        {office.phone}
-                      </a>
-                      <a
+                      {office.phone && (
+                        <TrackedLink
+                          kind="phone"
+                          source="contact_office"
+                          label={office.city}
+                          className="text-foreground/80 hover:text-accent"
+                          href={`tel:${office.phone.replace(/\s+/g, "")}`}
+                        >
+                          {office.phone}
+                        </TrackedLink>
+                      )}
+                      <TrackedLink
+                        kind="email"
+                        source="contact_office"
+                        label={office.city}
                         className="text-foreground/80 hover:text-accent"
                         href={`mailto:${office.email}`}
                       >
                         {office.email}
-                      </a>
+                      </TrackedLink>
                     </div>
                   </li>
                 ))}

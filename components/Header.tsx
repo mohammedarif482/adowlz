@@ -28,7 +28,12 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <Button href={siteConfig.hero.secondaryCta.href} size="md">
+          <Button
+            href={siteConfig.hero.secondaryCta.href}
+            size="md"
+            eventLabel={siteConfig.hero.secondaryCta.label}
+            eventSource="header"
+          >
             {siteConfig.hero.secondaryCta.label}
           </Button>
         </div>

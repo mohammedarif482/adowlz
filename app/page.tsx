@@ -24,10 +24,21 @@ export default function HomePage() {
           {hero.metrics}
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <Button href={hero.primaryCta.href} size="lg">
+          <Button
+            href={hero.primaryCta.href}
+            size="lg"
+            eventLabel={hero.primaryCta.label}
+            eventSource="home_hero"
+          >
             {hero.primaryCta.label}
           </Button>
-          <Button href={hero.secondaryCta.href} size="lg" variant="ghost">
+          <Button
+            href={hero.secondaryCta.href}
+            size="lg"
+            variant="ghost"
+            eventLabel={hero.secondaryCta.label}
+            eventSource="home_hero"
+          >
             {hero.secondaryCta.label}
           </Button>
         </div>
@@ -101,7 +112,13 @@ export default function HomePage() {
               Six crafts. One studio with wings.
             </h2>
           </div>
-          <Button href="/services" variant="primary" size="md">
+          <Button
+            href="/services"
+            variant="primary"
+            size="md"
+            eventLabel="See all services"
+            eventSource="home_services"
+          >
             See all services
           </Button>
         </div>
@@ -270,7 +287,13 @@ export default function HomePage() {
               </h2>
               <p className="mt-4 text-lg text-accent-foreground/80">{cta.body}</p>
             </div>
-            <Button href={cta.button.href} variant="secondary" size="lg">
+            <Button
+              href={cta.button.href}
+              variant="secondary"
+              size="lg"
+              eventLabel={cta.button.label}
+              eventSource="home_cta_top"
+            >
               {cta.button.label}
             </Button>
           </div>
@@ -316,7 +339,13 @@ export default function HomePage() {
               />
               <p className="mt-4 text-lg text-accent-foreground/80">{cta.body}</p>
             </div>
-            <Button href={cta.button.href} variant="secondary" size="lg">
+            <Button
+              href={cta.button.href}
+              variant="secondary"
+              size="lg"
+              eventLabel={cta.button.label}
+              eventSource="home_cta_bottom"
+            >
               {cta.button.label}
             </Button>
           </div>

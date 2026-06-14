@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { siteConfig } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { trackContactFormSubmit } from "@/lib/analytics";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -46,6 +47,11 @@ export function ContactForm() {
       const url = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(message)}`;
 
       window.open(url, "_blank", "noopener,noreferrer");
+      trackContactFormSubmit({
+        projectType: projectType || undefined,
+        hasPhone: Boolean(phone),
+        hasMessage: Boolean(detail),
+      });
       setStatus("success");
       form.reset();
     } catch (err) {

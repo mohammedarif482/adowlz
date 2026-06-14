@@ -132,7 +132,13 @@ export default function TeamPage() {
                 Bring the brief. We&rsquo;ll bring the team that ships it.
               </p>
             </div>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              eventLabel="Start a project"
+              eventSource="team_cta"
+            >
               Start a project
             </Button>
           </div>

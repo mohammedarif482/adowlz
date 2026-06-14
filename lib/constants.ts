@@ -258,21 +258,21 @@ export const CONTACT_PAGE = {
   offices: [
     {
       city: "Dubai",
-      address: "Business Bay, Dubai, UAE",
-      phone: "+971 4 000 0000",
-      email: "dubai@adowlz.com",
+      address: "Dubai, UAE",
+      phone: undefined as string | undefined,
+      email: "hello@adowlz.com",
     },
     {
       city: "Bangalore",
       address: "Indiranagar, Bengaluru, India",
       phone: "+91 85920 44723",
-      email: "bangalore@adowlz.com",
+      email: "hello@adowlz.com",
     },
     {
       city: "Cochin",
-      address: "Panampilly Nagar, Kochi, India",
+      address: "Kakkanad, Kochi, India",
       phone: "+91 85920 44723",
-      email: "cochin@adowlz.com",
+      email: "hello@adowlz.com",
     },
   ],
   formFields: [

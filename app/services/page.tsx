@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
+import { TrackedLink } from "@/components/TrackedLink";
 import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -33,7 +33,11 @@ export default function ServicesPage() {
         <ul className="grid gap-px overflow-hidden rounded-3xl bg-bone/10 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <li key={s.slug}>
-              <Link
+              <TrackedLink
+                kind="service"
+                source="services_grid"
+                serviceSlug={s.slug}
+                serviceTitle={s.title}
                 href={`/services/${s.slug}`}
                 className="group flex h-full flex-col gap-6 bg-ink p-8 transition-colors hover:bg-bone/[0.04] sm:p-10"
               >
@@ -51,7 +55,7 @@ export default function ServicesPage() {
                   {s.title}
                 </h2>
                 <p className="text-bone/70">{s.desc}</p>
-              </Link>
+              </TrackedLink>
             </li>
           ))}
         </ul>
@@ -69,7 +73,13 @@ export default function ServicesPage() {
                 or the right combination.
               </p>
             </div>
-            <Button href="/contact" variant="secondary" size="lg">
+            <Button
+              href="/contact"
+              variant="secondary"
+              size="lg"
+              eventLabel="Start a project"
+              eventSource="services_cta"
+            >
               Start a project
             </Button>
           </div>
