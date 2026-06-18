@@ -99,6 +99,66 @@ export const SERVICES = [
   },
 ] as const;
 
+export const PROJECT_DISCIPLINES = [
+  "Mobile App Development",
+  "Video Production",
+  "Web Design & Development",
+  "Digital Marketing",
+  "Brand Identity Design",
+  "E-commerce Solutions",
+  "AI & Intelligent Software",
+] as const;
+
+export type PortfolioMedia =
+  | { type: "image"; src: string; width: number; height: number }
+  | { type: "video"; src: string; width: number; height: number };
+
+export type PortfolioLinks = Partial<Record<"ios" | "android" | "web", string>>;
+
+export type PortfolioItem = {
+  slug: string;
+  title: string;
+  category: string;
+  desc: string;
+  media: PortfolioMedia;
+  tags: string[];
+  disciplines: string[];
+  links: PortfolioLinks;
+};
+
+export const PORTFOLIO: PortfolioItem[] = [
+  {
+    slug: "hango",
+    title: "Hango",
+    category: "Social Discovery & Activities App",
+    desc: "Hango connects you with people in your area through real-world activities and experiences. Whether you're new in town, looking to explore a hobby, or simply want to meet like-minded people — Hango makes it easy.",
+    media: { type: "image", src: "/portfolio/Hango.png", width: 1226, height: 1223 },
+    tags: ["Mobile App", "iOS & Android", "Admin Dashboard", "Web App"],
+    disciplines: ["Mobile App Development", "Web Design & Development"],
+    links: { ios: "#", android: "#", web: "#" },
+  },
+  {
+    slug: "bookwie",
+    title: "Bookwie",
+    category: "Salon & Wellness Booking Platform",
+    desc: "An end-to-end booking ecosystem for salons and wellness studios — customer app, vendor dashboard, and admin console working in lockstep to turn walk-ins into scheduled, recurring revenue.",
+    media: { type: "image", src: "/portfolio/Bookwie.png", width: 1231, height: 1715 },
+    tags: ["Mobile App", "iOS & Android", "Vendor Dashboard", "Admin Panel"],
+    disciplines: ["Mobile App Development", "Web Design & Development", "E-commerce Solutions"],
+    links: { ios: "#", android: "#", web: "#" },
+  },
+  {
+    slug: "bookwie-bts",
+    title: "Bookwie — Behind the Scenes",
+    category: "Brand Film & Product Shoot",
+    desc: "A successful shoot completed for Bookwie\nFrom concept to production, we helped bring the brand's story to life through engaging visual content designed to boost visibility, engagement, and growth.",
+    media: { type: "video", src: "/portfolio/shoot-bookwie-BTS.mp4", width: 720, height: 1280 },
+    tags: ["Video Production", "BTS", "Brand Film"],
+    disciplines: ["Video Production", "Digital Marketing"],
+    links: {},
+  },
+];
+
 export const WHY_US = [
   {
     title: "Experience",
@@ -324,6 +384,8 @@ export const CONTACT_PAGE = {
 } as const;
 
 export type Service = (typeof SERVICES)[number];
+export type PortfolioProject = (typeof PORTFOLIO)[number];
+export type ProjectDiscipline = (typeof PROJECT_DISCIPLINES)[number];
 export type ServiceSlug = Service["slug"];
 export type WhyUsItem = (typeof WHY_US)[number];
 export type TeamMemberData = (typeof TEAM)[number];

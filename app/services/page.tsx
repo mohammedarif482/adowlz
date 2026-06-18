@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { TrackedLink } from "@/components/TrackedLink";
+import { PortfolioGrid } from "@/components/PortfolioGrid";
 import { siteConfig } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  const { services } = siteConfig;
+  const { services, portfolio, projectDisciplines } = siteConfig;
 
   return (
     <>
@@ -59,6 +60,36 @@ export default function ServicesPage() {
             </li>
           ))}
         </ul>
+      </Section>
+
+      <Section tone="bone" id="recent-projects">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-xs uppercase tracking-[0.2em] text-muted">
+              Selected work
+            </p>
+            <h2 className="mt-3 text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+              Some of our recent projects.
+            </h2>
+            <p className="mt-6 text-lg text-foreground/75">
+              A glimpse at the platforms and products we&rsquo;ve shipped end to
+              end — from first wireframe to app store.
+            </p>
+          </div>
+          <Button
+            href="/portfolio"
+            variant="primary"
+            size="md"
+            eventLabel="View full portfolio"
+            eventSource="services_portfolio"
+          >
+            View full portfolio
+          </Button>
+        </div>
+
+        <div className="mt-14">
+          <PortfolioGrid projects={portfolio} disciplines={projectDisciplines} />
+        </div>
       </Section>
 
       <Section tone="bone" className="pb-32">
