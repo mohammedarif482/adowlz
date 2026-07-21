@@ -84,8 +84,8 @@ export const siteConfig = {
   social: [
     { label: "LinkedIn", href: "https://www.linkedin.com/company/adowlz/posts/?feedView=all" },
     { label: "Instagram", href: "https://www.instagram.com/adowlz/" },
-    { label: "Behance", href: "https://www.behance.net/" },
-    { label: "Facebook", href: "https://www.facebook.com/" },
+    { label: "Behance", href: "https://www.behance.net/arya363363f5c6" },
+    { label: "Facebook", href: "https://www.facebook.com/share/1ZzCwkHJ8D/?mibextid=wwXIfr" },
   ],
   cta: {
     title: "Got an idea? Let's give it wings.",
