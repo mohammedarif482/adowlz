@@ -49,7 +49,7 @@ export default function HomePage() {
             <img
               src="https://i1-c.pinimg.com/1200x/b1/59/41/b15941c03dd6459cf76302adbf079255.jpg"
               alt="ADOWLZ hero — cinematic creative work"
-              className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+              className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:grayscale"
             />
           </div>
           <div className="group absolute -bottom-10 -left-12 w-36 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border lg:w-40 xl:w-48">
@@ -58,7 +58,7 @@ export default function HomePage() {
               <img
                 src="https://i.pinimg.com/736x/2b/d9/6b/2bd96b04838c0e74fb3f2b234c4edb18.jpg"
                 alt="Featured work — visual identity"
-                className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:grayscale"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
                         src={src}
                         alt=""
                         loading="lazy"
-                        className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:grayscale"
                       />
                     </div>
                   </li>
@@ -217,7 +217,7 @@ export default function HomePage() {
                       src={item.src}
                       alt={item.alt}
                       loading="lazy"
-                      className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:grayscale"
                     />
                     <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
                       {item.caption}
@@ -249,7 +249,7 @@ export default function HomePage() {
                           src={item.src}
                           alt={item.alt}
                           loading="lazy"
-                          className="h-full w-full object-cover transition duration-700 grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+                          className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03] group-hover:grayscale"
                         />
                         <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
                           {item.caption}
@@ -322,14 +322,16 @@ export default function HomePage() {
       </Section>
 
       <Section tone="bone" className="py-8 pb-16 sm:py-12 sm:pb-20">
-        <div
-          className="overflow-hidden rounded-3xl bg-contain bg-center bg-no-repeat p-6 text-accent-foreground sm:p-10 lg:p-16"
-          style={{
-            backgroundImage: "url('/moc/mocbg.png')",
-            aspectRatio: "4096 / 1045",
-          }}
-        >
-          <div className="flex h-full flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
+        <div className="relative aspect-[1703/2186] overflow-hidden rounded-3xl p-6 text-accent-foreground sm:aspect-[4096/1045] sm:p-10 lg:p-16">
+          <div
+            className="absolute inset-0 bg-contain bg-center bg-no-repeat sm:hidden"
+            style={{ backgroundImage: "url('/moc/mocbg-mobile.png')" }}
+          />
+          <div
+            className="absolute inset-0 hidden bg-contain bg-center bg-no-repeat sm:block"
+            style={{ backgroundImage: "url('/moc/mocbg.png')" }}
+          />
+          <div className="relative flex h-full flex-col gap-8 sm:flex-row sm:items-end sm:justify-between">
             <div className="max-w-2xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
