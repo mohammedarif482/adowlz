@@ -49,7 +49,7 @@ export default function HomePage() {
             <img
               src="https://i1-c.pinimg.com/1200x/b1/59/41/b15941c03dd6459cf76302adbf079255.jpg"
               alt="ADOWLZ hero — cinematic creative work"
-              className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+              className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
             />
           </div>
           <div className="group absolute -bottom-10 -left-12 w-36 overflow-hidden rounded-2xl shadow-2xl ring-1 ring-border lg:w-40 xl:w-48">
@@ -58,7 +58,7 @@ export default function HomePage() {
               <img
                 src="https://i.pinimg.com/736x/2b/d9/6b/2bd96b04838c0e74fb3f2b234c4edb18.jpg"
                 alt="Featured work — visual identity"
-                className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+                className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
               />
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function HomePage() {
                         src={src}
                         alt=""
                         loading="lazy"
-                        className="h-full w-full object-cover transition duration-700 sm:grayscale group-hover:scale-[1.03] group-hover:grayscale-0"
+                        className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
                       />
                     </div>
                   </li>
@@ -217,7 +217,7 @@ export default function HomePage() {
                       src={item.src}
                       alt={item.alt}
                       loading="lazy"
-                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover grayscale transition duration-700 group-hover:scale-[1.03] group-hover:grayscale-0"
                     />
                     <span className="absolute bottom-4 left-4 rounded-full bg-ink/70 px-3 py-1 text-xs uppercase tracking-[0.18em] text-bone backdrop-blur">
                       {item.caption}

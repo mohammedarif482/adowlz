@@ -7,34 +7,6 @@ import {
   AiOutlineRobot,
 } from "react-icons/ai";
 
-export const BRAND = {
-  name: "adowlz",
-  tagline: "Where ideas spread their wings.",
-  description:
-    "Adowlz crafts cinematic stories and bold visual identities that move brands forward — from concept to culture-shifting impact.",
-  email: "hello@adowlz.com",
-  social: {
-    instagram: "https://www.instagram.com/adowlz/",
-    linkedin: "https://www.linkedin.com/company/adowlz/posts/?feedView=all",
-    twitter: "https://twitter.com/adowlz",
-  },
-} as const;
-
-export const ROUTES = {
-  home: "/",
-  about: "/about",
-  services: "/services",
-  team: "/team",
-  contact: "/contact",
-} as const;
-
-export const NAV_LINKS = [
-  { label: "Work", href: ROUTES.services },
-  { label: "About", href: ROUTES.about },
-  { label: "Team", href: ROUTES.team },
-  { label: "Contact", href: ROUTES.contact },
-] as const;
-
 export const HERO = {
   eyebrow: "Cinematic · Design · Tech",
   headline: "Where Ideas Spread Their Wings",
@@ -109,13 +81,13 @@ export const PROJECT_DISCIPLINES = [
   "AI & Intelligent Software",
 ] as const;
 
-export type PortfolioMedia =
+type PortfolioMedia =
   | { type: "image"; src: string; width: number; height: number }
   | { type: "video"; src: string; width: number; height: number };
 
-export type PortfolioLinks = Partial<Record<"ios" | "android" | "web", string>>;
+type PortfolioLinks = Partial<Record<"ios" | "android" | "web", string>>;
 
-export type PortfolioItem = {
+type PortfolioItem = {
   slug: string;
   title: string;
   category: string;
@@ -384,11 +356,5 @@ export const CONTACT_PAGE = {
 } as const;
 
 export type Service = (typeof SERVICES)[number];
-export type PortfolioProject = (typeof PORTFOLIO)[number];
-export type ProjectDiscipline = (typeof PROJECT_DISCIPLINES)[number];
 export type ServiceSlug = Service["slug"];
 export type WhyUsItem = (typeof WHY_US)[number];
-export type TeamMemberData = (typeof TEAM)[number];
-export type ServiceDetail = (typeof SERVICE_DETAILS)[ServiceSlug];
-export type Office = (typeof CONTACT_PAGE.offices)[number];
-export type ContactFormField = (typeof CONTACT_PAGE.formFields)[number];

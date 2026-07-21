@@ -82,8 +82,8 @@ export const siteConfig = {
   },
   contactPage: CONTACT_PAGE,
   social: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/" },
-    { label: "Instagram", href: "https://www.instagram.com/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/adowlz/posts/?feedView=all" },
+    { label: "Instagram", href: "https://www.instagram.com/adowlz/" },
     { label: "Behance", href: "https://www.behance.net/" },
     { label: "Facebook", href: "https://www.facebook.com/" },
   ],
@@ -93,5 +93,3 @@ export const siteConfig = {
     button: { label: "View the Canvas", href: "https://madeofcuriosity.com/" },
   },
 } as const;
-
-export type SiteConfig = typeof siteConfig;

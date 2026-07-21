@@ -47,7 +47,7 @@ export function MobileMenu({ items, cta }: Props) {
             className="md:hidden fixed inset-x-0 bottom-0 top-16 z-30 flex flex-col"
             style={{ backgroundColor: "var(--background)" }}
           >
-            <nav aria-label="Mobile" className="flex-1 px-6 pb-10 pt-8">
+            <nav aria-label="Mobile" className="flex flex-1 flex-col px-6 pb-10 pt-8">
               <ul className="flex flex-col gap-2">
                 {items.map((item) => {
                   const active =
@@ -70,6 +70,13 @@ export function MobileMenu({ items, cta }: Props) {
                   );
                 })}
               </ul>
+
+              <Link
+                href={cta.href}
+                className="mt-auto inline-flex h-14 items-center justify-center rounded-full bg-accent-gradient px-7 text-base font-medium text-accent-foreground transition hover:opacity-90"
+              >
+                {cta.label}
+              </Link>
             </nav>
           </div>,
           document.body,
